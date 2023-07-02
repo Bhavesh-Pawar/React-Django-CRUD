@@ -1,9 +1,11 @@
 import Heading from "./components/Heading";
+import MyTable from "./components/Table";
 
 function App() {
   return (
-    <div>
+    <div className="container">
     <Heading />
+    <MyTable />
     </div>
   );
 }
