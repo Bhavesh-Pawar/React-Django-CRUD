@@ -73,6 +73,7 @@ function MyTable() {
     <h3 className="text-center">
         Users Table
     </h3>
+    <div className="table-responsive">
     <table className="table table-bordered mt-2">
       <thead>
         <tr>
@@ -83,6 +84,7 @@ function MyTable() {
         {table_rows}
       </tbody>
     </table>
+    </div>
     </React.Fragment>
   );
 }
