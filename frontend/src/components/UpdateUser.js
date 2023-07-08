@@ -9,13 +9,25 @@ export default function UpdateUser() {
   let [isFormSubmitted , setFormSubmit] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:7000/api/getUser/${params.id}/`)
-      .then((res) => {
-        console.log(res.data);
-        setUser(res.data.user)
-      });
-  }, [params.id]);
+    if(!(isFormSubmitted)){
+      axios
+        .get(`http://localhost:7000/api/getUser/${params.id}/`)
+        .then((res) => {
+          console.log(res.data);
+          setUser(res.data.user)
+        });
+    }
+    else{
+      axios
+        .put(`http://localhost:7000/api/getUser/${params.id}/`,{
+          data : userData
+        })
+        .then((res) => {
+          console.log(res.data);
+        });
+    }
+    // eslint-disable-next-line
+  },[isFormSubmitted]);
 
   function submitData(e){
     e.preventDefault();

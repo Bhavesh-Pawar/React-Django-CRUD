@@ -59,7 +59,7 @@ class UserDetailView(APIView):
         response = None
         try:
             user_detail = UserDetail.objects.get(pk_user = pk)
-            user = UserDetailSerializer(instance = user_detail,data=request.data)
+            user = UserDetailSerializer(instance = user_detail,data=request.data['data'])
             if user.is_valid():
                 user.save()
             response = f'{user.instance}'
