@@ -28,14 +28,14 @@ class UserView(APIView):
         """
         response = None
         try:
-            user = UserDetailSerializer(data=request.data)
+            user = UserDetailSerializer(data=request.data['data'])
             if user.is_valid():
                 user.save()
             response = user.instance
         except Exception as error:
             response = f'{error}'
         finally:
-            return JsonResponse({'user':user,'message':f'{response} created'})
+            return Response({'user':user.data,'message':f'{response} created'})
 
 class UserDetailView(APIView):
     def get(self,request,pk):
