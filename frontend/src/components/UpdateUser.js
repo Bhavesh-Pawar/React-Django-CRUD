@@ -15,6 +15,9 @@ export default function UpdateUser() {
         .then((res) => {
           console.log(res.data);
           setUser(res.data.user)
+        })
+        .catch((error)=>{
+          console.log("Server is down");
         });
     }
     else{
