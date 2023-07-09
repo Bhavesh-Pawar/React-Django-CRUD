@@ -11,12 +11,11 @@ function MyTable() {
 
     const confirmDelete = (name,pk) =>{
       let bool = window.confirm(`Do you want to delete ${name} ${pk}`);
-      if(bool){
-        console.log("Delete it");
-      }
+
       setPkUser(pk);
       setConfirmDeleteUser(bool);
     }
+
     function fetchUsers(){
       axios
       .get('http://127.0.0.1:7000/api/getUsers/')
@@ -24,8 +23,9 @@ function MyTable() {
         setUsers(res.data.users);
       })
     }
+
+
     useEffect(()=>{
-      console.log(confirmDeleteUser);
       if(confirmDeleteUser){
         axios
         .delete(`http://127.0.0.1:7000/api/getUser/${pkUser}/`)
@@ -35,6 +35,7 @@ function MyTable() {
         })
       }
       fetchUsers()
+      
         // eslint-disable-next-line
     },[confirmDeleteUser]); 
 
