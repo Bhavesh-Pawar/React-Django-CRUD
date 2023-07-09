@@ -14,6 +14,9 @@ export default function UpdateUser() {
           .post(`http://localhost:7000/api/getUsers/`,{data:userData})
           .then((res) => {
             console.log(res.data);
+          })
+          .catch((error)=>{
+            console.log("Server is down");
           });
     }
   }, [userData,isFormSubmitted]);
